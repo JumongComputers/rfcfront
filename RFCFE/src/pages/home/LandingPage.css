@@ -1,0 +1,60 @@
+.landing{
+    background-image: url("./images/homebanner.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 90vh;
+    padding-top: 120px;
+}
+
+.container{
+    width: 50%;
+    max-width: 900px;
+    margin: 0px auto;
+    color: white;
+    text-align: center;
+    
+}
+
+
+.container > span{
+    border: solid 1.5px white;
+    padding: 7px;
+    /* margin-top: 40px; */
+}
+
+.container > h1{
+    margin-top: 40px;
+}
+
+.container > p{
+    margin-top: 20px;
+}
+
+.container > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.container > div > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    background-color: #E46B0A;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.container > div > button:hover{
+    background-color: white;
+    color: #E46B0A;
+    border: 1px solid #E46B0A;
+}

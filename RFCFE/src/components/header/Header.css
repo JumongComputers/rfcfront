@@ -1,0 +1,71 @@
+
+
+
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 5px auto;
+    color: #2A1870;
+    font-weight: 700;
+    font-size: 12px;
+    
+    /* padding: 0; */
+}
+
+.logo{
+    /* padding: 0; */
+    display: flex;
+    align-items: center;
+    
+}
+
+.menus > .mencont {
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+
+.mencont > li {
+    list-style: none;
+}
+
+.desktmenus{
+    display: flex;
+    gap: 20px;
+    
+
+}
+
+.conta, .contb{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+
+}
+.cruma, .crumb{
+    font-size: 10px;
+}
+
+.harm{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .harm{
+        display: block;
+    }
+}
+
+
+
+

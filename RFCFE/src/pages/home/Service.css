@@ -1,0 +1,37 @@
+
+.service{
+    text-align: center;
+    margin-top: 60px;
+}
+
+.service > h1{
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+}
+
+.service > p{
+    margin-top: 20px;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.servbut{
+    margin-top: 20px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px; */
+}
+
+.servbut > button{
+    padding: 8px 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 10px;
+    background-color: #FFD2A4;
+    color: black;
+}
