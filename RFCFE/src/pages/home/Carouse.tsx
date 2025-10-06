@@ -1,5 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import "../styles/carousel.css";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import "./carousel.css";
+
+// Import images to let Vite handle bundling
+// import passoverImage from "./images/aa.png";
+// import buildersImage from "./images/bb.png";
+// import welcomeImage from "./images/cc.png";
 
 type SlideType = "passover" | "builders" | "welcome";
 
@@ -10,130 +15,66 @@ interface Slide {
 
 const AUTO_PLAY_DELAY = 4000;
 
+// Slides data can be defined outside the component
+const slides: Slide[] = [
+  {
+    type: "passover",
+    content: (
+      <div className="slide-content passover-slide">
+        <img src= "./images/aa.png" alt="passover"  className="pass-img"/>
+      </div>
+    ),
+  },
+  {
+    type: "builders",
+    content: (
+      <div className="slide-content builders-slide">
+        <img src= "./images/bb.png" alt="builders" />
+      </div>
+    ),
+  },
+  {
+    type: "welcome",
+    content: (
+      <div className="slide-content welcome-slide">
+        <img src= "./images/cc.png" alt="welcome to rfc" />
+      </div>
+    ),
+  },
+];
+
 const Carousel: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Slides data
-  const slides: Slide[] = [
-    {
-      type: "passover",
-      content: (
-        <div className="slide-content passover-slide">
-          <div className="church-logo">
-            <span className="logo-text">ROCK FOUNDATION CHURCH ABEOKUTA</span>
-          </div>
-          <div className="main-content">
-            <div className="service-badge">
-              <span className="int-service">INT</span>
-              <span className="service-type">SERVICE</span>
-            </div>
-            <div className="event-title">
-              <h1>
-                CHRIST<br />OUR
-              </h1>
-              <h2 className="passover-text">PASSOVER</h2>
-            </div>
-            <div className="event-details">
-              <p className="event-schedule">ALL SUNDAYS IN JANUARY</p>
-              <p className="event-tagline">...experiencing God's power in 2023</p>
-              <div className="live-info">
-                <span className="live-badge">LIVE</span>
-                <span className="streaming-info">📺 🔘 MixIr Tunde Amosun</span>
-              </div>
-            </div>
-            <div className="time-info">
-              <span className="time-label">Time</span>
-              <span className="time-value">
-                9<br />AM
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      type: "builders",
-      content: (
-        <div className="slide-content builders-slide">
-          <div className="church-logo">
-            <span className="logo-text">ROCK FOUNDATION CHURCH</span>
-            <span className="service-subtitle">Youths And Singles Service</span>
-          </div>
-          <div className="main-content">
-            <div className="invitation-text">You are Specially Invited to</div>
-            <div className="event-title">
-              <h1 className="builders-title">BUILDERS AND<br />CONQUERORS</h1>
-              <h2 className="sunday-text">SUNDAY<br />SERVICE</h2>
-            </div>
-            <div className="event-details">
-              <p className="venue">Tekobo Junction Idi Aba Abeokuta</p>
-              <p className="date-time">SUNDAY 25TH JUNE 2023<br />11:00AM</p>
-              <div className="service-features">
-                <span>Interactive Message</span> | <span>Q&A</span> | <span>Refreshments</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
-      type: "welcome",
-      content: (
-        <div className="slide-content welcome-slide">
-          <div className="welcome-image">
-            <img
-              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f0f8ff'/%3E%3Ctext x='200' y='150' text-anchor='middle' font-family='Arial' font-size='16' fill='%23666'%3EHappy Church Members%3C/text%3E%3C/svg%3E"
-              alt="Happy church members"
-            />
-          </div>
-          <div className="welcome-content">
-            <h1 className="welcome-title">WELCOME</h1>
-            <p className="welcome-subtitle">TO ROCK FOUNDATION CHURCH</p>
-            <div className="tagline">
-              <span className="script-text">
-                building Matured Followers Of Christ
-              </span>
-            </div>
-            <div className="location">
-              <span>
-                Tekobo Junction<br />Abeokuta, Ogun
-              </span>
-            </div>
-          </div>
-        </div>
-      ),
-    },
-  ];
-
   const totalSlides = slides.length;
+  const slideWidthPercentage = 100 / totalSlides;
 
   // Navigation
   const goToSlide = (index: number) => setCurrentSlide(index);
-  const goToNextSlide = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  const goToPrevSlide = () => setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+  const goToNextSlide = useCallback(() => setCurrentSlide((prev) => (prev + 1) % totalSlides), [totalSlides]);
+  const goToPrevSlide = useCallback(() => setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1)), [totalSlides]);
 
   // AutoPlay
-  useEffect(() => {
-    startAutoPlay();
-    return stopAutoPlay;
-  }, []);
-
-  const startAutoPlay = () => {
-    stopAutoPlay();
-    autoPlayRef.current = setInterval(goToNextSlide, AUTO_PLAY_DELAY);
-  };
-
-  const stopAutoPlay = () => {
+  const stopAutoPlay = useCallback(() => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current);
       autoPlayRef.current = null;
     }
-  };
+  }, []);
+  const startAutoPlay = useCallback(() => {
+    stopAutoPlay();
+    autoPlayRef.current = setInterval(goToNextSlide, AUTO_PLAY_DELAY);
+  }, [goToNextSlide, stopAutoPlay]);
+
+  useEffect(() => {
+    startAutoPlay();
+    return stopAutoPlay;
+  }, [startAutoPlay, stopAutoPlay]);
 
   // Keyboard navigation
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
       if (e.key === "ArrowLeft") {
         stopAutoPlay();
         goToPrevSlide();
@@ -146,7 +87,7 @@ const Carousel: React.FC = () => {
     };
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [goToNextSlide, goToPrevSlide, startAutoPlay, stopAutoPlay]);
 
   return (
     <div className="carousel-container">
@@ -158,7 +99,7 @@ const Carousel: React.FC = () => {
         <div
           className="carousel-track"
           style={{
-            transform: `translateX(-${currentSlide * (100 / totalSlides)}%)`,
+            transform: `translateX(-${currentSlide * slideWidthPercentage}%)`,
           }}
         >
           {slides.map((slide, index) => (
@@ -172,10 +113,10 @@ const Carousel: React.FC = () => {
         </div>
 
         {/* Navigation arrows */}
-        <button className="carousel-nav prev" onClick={goToPrevSlide}>
+        <button className="carousel-nav prev" onClick={goToPrevSlide} aria-label="Previous slide">
           ‹
         </button>
-        <button className="carousel-nav next" onClick={goToNextSlide}>
+        <button className="carousel-nav next" onClick={goToNextSlide} aria-label="Next slide">
           ›
         </button>
       </div>
@@ -187,6 +128,7 @@ const Carousel: React.FC = () => {
             key={index}
             className={`indicator ${currentSlide === index ? "active" : ""}`}
             onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>

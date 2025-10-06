@@ -8,12 +8,12 @@ const LandingPage = () => {
     <>
     <div className='landing'>
 
-      <div className="container">
+      <div className="containery">
         <span>LATEST SERMON</span>
         <h1>Rock Foundation Church</h1>
         <p>Making Mature Followers of Christ</p>
 
-        <div>
+        <div className='btn'>
               <button> <TvMinimal /><span>WATCH SERMON</span></button>
         </div>
         

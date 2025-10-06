@@ -8,11 +8,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 95%;
     margin: 5px auto;
     color: #2A1870;
     font-weight: 700;
     font-size: 12px;
+    padding: 4px;
     
     /* padding: 0; */
 }
@@ -26,10 +27,13 @@
 
 .menus > .mencont {
     display: flex;
-    /* justify-content: space-between; */
-    gap: 5px;
+    justify-content: space-between; 
+    gap: 10px;
     align-items: center;
-    justify-content: center;
+    /* justify-content: space-around; */
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
     
 
 }

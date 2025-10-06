@@ -4,41 +4,42 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 90vh;
-    padding-top: 120px;
+    padding-top: 90px;
 }
 
-.container{
-    width: 50%;
+.containery{
+    width: 70%;
     max-width: 900px;
     margin: 0px auto;
     color: white;
     text-align: center;
+    font-size: 30px;
     
 }
 
 
-.container > span{
+.containery > span{
     border: solid 1.5px white;
     padding: 7px;
     /* margin-top: 40px; */
 }
 
-.container > h1{
+.containery > h1{
     margin-top: 40px;
 }
 
-.container > p{
+.containery > p{
     margin-top: 20px;
 }
 
-.container > div {
+.containery > .btn {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 40px;
 }
 
-.container > div > button {
+.containery > .btn > button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,7 +54,7 @@
     transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.container > div > button:hover{
+.containery > .btn > button:hover{
     background-color: white;
     color: #E46B0A;
     border: 1px solid #E46B0A;

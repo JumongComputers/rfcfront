@@ -1,0 +1,92 @@
+.container{
+background-color: #222357;
+padding: 10px;
+margin: 20px auto;
+width: 100%;
+}
+
+.container > .headia{
+    
+    text-align: center;
+    margin: 10px auto;
+    color: white;
+}
+
+.headia > p{
+    margin-top: 25px;
+}
+
+.a > img{
+    width: 100%;
+ }
+
+.b > img{
+    width: 100%;
+}
+
+.c > img{
+    width: 100%;
+ }
+ 
+
+.a, .b, .c{
+    width: 50%;
+    position: relative;
+}
+
+.container > .cont{
+    
+    padding: 20px;
+    
+}
+
+.cont{
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+    width: 70%;
+    margin: auto;
+}
+
+.lay{
+    position: absolute;
+    bottom: -5px;
+    width: 100%;
+    text-align: center;
+    /* padding-top: 20px; */
+
+}
+
+.cont > .txtbtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 5px auto;
+    text-align: center;
+    color: white;
+}
+
+.txtbtn > p{
+font-size: 12px;
+}
+
+.txtbtn > .text{
+ margin-bottom: 45px;
+ font-family: Poppins;
+ font-style: normal
+}
+
+.txtbtn > button{
+    padding: 8px 15px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+    font-size: 10px;
+    background-color: #E46B0A;
+    color: white;
+}
+
+
