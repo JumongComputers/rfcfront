@@ -1,0 +1,42 @@
+.foot{
+    background-color: #161750;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.txt{
+    position: relative;
+}
+
+.txt > button{
+    position: absolute;
+
+}
+
+.foot > div{
+    width: 20%;
+}
+
+.first{
+    width: 100%;
+}
+
+
+.foota1{
+margin-top: 50px;
+}
+
+.foota, .foota1{
+    margin-bottom: 20px;
+}
+
+.second > h3, p {
+   margin-bottom: 20px;
+}
+
+.seconda1{
+    margin-top: 50px;
+}
+

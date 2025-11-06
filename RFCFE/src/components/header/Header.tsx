@@ -11,7 +11,7 @@ const Header = () => {
          <img src="./images/logo.png" alt="logo" />
       </div>
 
-      <div className="menus">
+      <div className="menusa">
        <ul className="mencont">
         <li>
           HOME

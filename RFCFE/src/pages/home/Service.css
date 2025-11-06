@@ -25,13 +25,13 @@
 }
 
 .servbut > button{
-    padding: 8px 15px;
+    padding: 15px 25px;
     outline: none;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
-    font-size: 10px;
+    font-size: 15px;
     background-color: #FFD2A4;
     color: black;
 }

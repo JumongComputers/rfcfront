@@ -18,7 +18,7 @@ const More = () => {
         <div className="cont">
 
           <div className="txtbtn">
-              <div className="a">
+              <div className="ada">
              <img src="./images/a1.png" alt="first image" />
              <div className="lay">
               <div className="txtbtn">
@@ -34,7 +34,7 @@ const More = () => {
              </div>
             </div>
 
-            <div className="b">
+            <div className="bab">
                 <img src="./images/a2.png" alt="second image" />
                 <div className="lay">
               <div className="txtbtn">
@@ -50,7 +50,7 @@ const More = () => {
              </div>
             </div>
 
-            <div className="c">
+            <div className="cac">
                 <img src="./images/a3.png" alt="third image" />
                 <div className="lay">
               <div className="txtbtn">

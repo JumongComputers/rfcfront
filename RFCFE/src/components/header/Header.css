@@ -25,7 +25,7 @@
     
 }
 
-.menus > .mencont {
+.menusa > .mencont {
     display: flex;
     justify-content: space-between; 
     gap: 10px;
@@ -34,6 +34,7 @@
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
+    padding-bottom: 10px;
     
 
 }

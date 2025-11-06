@@ -1,6 +1,6 @@
 import React from 'react'
 import './LandingPage.css'
-import { TvMinimal } from 'lucide-react'
+import {  TvMinimal } from 'lucide-react'
 // import { Link } from 'react-router-dom'
 
 const LandingPage = () => {
